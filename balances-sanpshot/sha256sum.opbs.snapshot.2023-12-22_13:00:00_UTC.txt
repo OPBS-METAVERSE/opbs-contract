@@ -1,0 +1,2 @@
+7780ea775d33be849a4cd5084ab10f9e4b102c058f489a379deb0ea46c014b00  balance.csv
+sha256sum balance.csv >> sha256sum.opbs.snapshot.2023-12-22_13:00:00_UTC.txt
