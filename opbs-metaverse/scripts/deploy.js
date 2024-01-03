@@ -7,21 +7,15 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
 
-  const lockedAmount = hre.ethers.parseEther("0.001");
+  const OPBS_METAVERSE = await hre.ethers.deployContract("OPBS_METAVERSE");
 
-  const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
-    value: lockedAmount,
-  });
+  const contract = await OPBS_METAVERSE.waitForDeployment();
+  const deployTx = await contract.deploymentTransaction();
 
-  await lock.waitForDeployment();
 
   console.log(
-    `Lock with ${ethers.formatEther(
-      lockedAmount
-    )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
+    `tx hash ${deployTx.hash}`
   );
 }
 

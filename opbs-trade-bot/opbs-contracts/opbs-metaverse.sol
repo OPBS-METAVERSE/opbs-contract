@@ -1,14 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
-// https://twitter.com/varabets
-// OPBS METAVERSE is based on https://opbsgo.xyz/#/market
-// Decentralized database and decentralized market built by Balance snapshot. 
-// Exchanges and Inscription trading platforms can build transactions based on this contract.
-// Code open source: https://github.com/OPBS-METAVERSE/opbs-contract.git
-// Ecological builders can build ecological applications based on this data. 
 
 pragma solidity ^0.8.0;
 
-import "node_modules/openzeppelin-contracts/utils/EnumerableSet.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/structs/EnumerableSet.sol";
 
 contract OPBS_METAVERSE {
     string tick = 'OPBS METAVERSE';

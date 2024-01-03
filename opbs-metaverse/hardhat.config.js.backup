@@ -1,0 +1,62 @@
+// const { ethers } = require("hardhat");
+
+require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-verify");
+require("dotenv/config");
+// require("@nomicfoundation/hardhat-verify");
+
+
+
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  // solidity: "0.8.19",
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.21",
+          settings: { 
+            evmVersion:"istanbul",
+            optimizer: {
+              enabled: true,
+              runs: 20000,
+          }
+        }
+      },
+    ],
+  },
+  networks:{
+    OPBNB: {
+      url: `https://opbnb-mainnet-rpc.bnbchain.org`,
+      chainId: 0xcc,
+      accounts: [process.env.KEY_OPBNB],
+      gasPrice: 9,
+    },
+
+    OPBNBTEST: {
+      url: `https://opbnb-testnet.publicnode.com`,
+      chainId: 5611,
+      accounts: [process.env.KEY_OPBNB],
+      gasPrice: 9,
+    },
+},
+etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/   
+    // opBNB 
+    apiKey: {opbnb: "ce6120f5cef344f6bff97eb8bc0f7472"},
+    // https://open-platform.nodereal.io/ce6120f5cef344f6bff97eb8bc0f7472/op-bnb-mainnet/contract/
+  customChains: [
+      {
+      network: "opbnb",
+      chainId: 0xcc, // Replace with the correct chainId for the "opbnb" network
+      urls: {
+        apiURL:  "https://open-platform.nodereal.io/ce6120f5cef344f6bff97eb8bc0f7472/op-bnb-mainnet/contract/",
+        browserURL: "https://testnet.opbnbscan.com/",
+        },
+      },
+    ]
+  },
+  sourcify: {
+    enabled: false,
+  }
+};
